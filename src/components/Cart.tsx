@@ -9,8 +9,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { CommonNavItemProps } from "../types/types";
+import { useAppSelector } from "../store/hooks";
 interface Props extends CommonNavItemProps {}
 const Cart: React.FC<Props> = ({ isMenu, onClick }) => {
+  const { carts } = useAppSelector((state) => state.cart);
   const handleClick = () => {
     onClick?.();
   };
@@ -19,7 +21,7 @@ const Cart: React.FC<Props> = ({ isMenu, onClick }) => {
       {isMenu ? (
         <MenuItem onClick={handleClick}>
           <ListItemIcon>
-            <Badge badgeContent={17} color="error">
+            <Badge badgeContent={carts?.length ?? 0} color="error">
               <ShoppingCart />
             </Badge>
           </ListItemIcon>
@@ -28,7 +30,7 @@ const Cart: React.FC<Props> = ({ isMenu, onClick }) => {
       ) : (
         <Tooltip title="Cart">
           <IconButton onClick={handleClick} aria-label="cart">
-            <Badge badgeContent={4} color="success">
+            <Badge badgeContent={carts?.length ?? 0} color="success">
               <ShoppingCart />
             </Badge>
           </IconButton>

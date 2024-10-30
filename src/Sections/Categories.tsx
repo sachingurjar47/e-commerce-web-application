@@ -19,10 +19,21 @@ const Categories: React.FC<Props> = ({ data }) => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 900,
+        settings: {
+          dots: false,
+        },
+      },
+    ],
   };
   return (
     <Box
       sx={(theme) => ({
+        pb: {
+          md: 3,
+        },
         "*": {
           color: theme.palette.primary.main,
         },
@@ -38,7 +49,7 @@ const Categories: React.FC<Props> = ({ data }) => {
     >
       <Slider {...settings}>
         {data.map((item) => (
-          <CategoryCard data={item} />
+          <CategoryCard key={item?.value} data={item} />
         ))}
       </Slider>
     </Box>

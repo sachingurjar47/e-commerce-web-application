@@ -65,7 +65,7 @@ const AppBar: React.FC<Props> = ({ navItems, moreItems }) => {
       <Divider />
       <List>
         {navItems?.map((item) =>
-          item.component ? <item.component isMenu /> : null
+          item.component ? <item.component key={item?.key} isMenu /> : null
         )}
       </List>
     </Box>
@@ -118,7 +118,7 @@ const AppBar: React.FC<Props> = ({ navItems, moreItems }) => {
             <Box display="flex">
               {navItems?.map((item) => (
                 <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                  {item.component ? <item.component /> : null}
+                  {item.component ? <item.component key={item?.key} /> : null}
                 </Box>
               ))}
               <Box sx={{ display: { md: "flex", sx: "none" } }}>

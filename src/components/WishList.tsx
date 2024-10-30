@@ -19,7 +19,7 @@ const WishList: React.FC<Props> = ({ isMenu, onClick }) => {
       {isMenu ? (
         <MenuItem onClick={handleClick}>
           <ListItemIcon>
-            <Badge badgeContent={17} color="error">
+            <Badge badgeContent={0} color="error">
               <FavoriteBorderIcon />
             </Badge>
           </ListItemIcon>
@@ -28,7 +28,7 @@ const WishList: React.FC<Props> = ({ isMenu, onClick }) => {
       ) : (
         <Tooltip title="Wishlist">
           <IconButton aria-label="wishlist">
-            <Badge badgeContent={4} color="error">
+            <Badge badgeContent={0} color="error">
               <FavoriteBorderIcon />
             </Badge>
           </IconButton>

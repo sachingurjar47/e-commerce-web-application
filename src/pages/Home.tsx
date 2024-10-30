@@ -135,9 +135,10 @@ const Home = () => {
       <Categories data={categories} />
       {categories?.map((item, i) => (
         <ProductBy
+          key={item?.value}
           heading={`Top ${item.name}`}
+          category={item.value}
           sideImage={item.img!}
-          data={data}
         />
       ))}
     </Box>
